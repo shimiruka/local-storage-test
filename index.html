@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Local Storage Test</title>
+  </head>
+  <body>
+    <h1>Local Storage Test</h1>
+    <input type="text" id="dataInput" />
+    <button id="saveButton">save</button>
+    <button id="loadButton">load</button>
+    <div id="dataDisplay"></div>
+    <script>
+      const saveButton = document.getElementById('saveButton');
+      const loadButton = document.getElementById('loadButton');
+      const dataInput = document.getElementById('dataInput');
+      const dataDisplay = document.getElementById('dataDisplay');
+
+      saveButton.addEventListener('click', () => {
+        localStorage.setItem('testData', dataInput.value);
+      });
+
+      loadButton.addEventListener('click', () => {
+        const data = localStorage.getItem('testData');
+        const text = data ? `Data: ${data}` : 'Data not found';
+        dataDisplay.textContent = text;
+      });
+    </script>
+  </body>
+</html>
